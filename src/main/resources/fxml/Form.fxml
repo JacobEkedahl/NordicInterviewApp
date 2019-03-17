@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kanonkod.nordicinterviewapp.FormController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Welcome, please fill out the form">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="scrollContainer" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="796.0" spacing="8.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding></VBox>
+         </content>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <Button fx:id="saveBtn" mnemonicParsing="false" text="Save" BorderPane.alignment="CENTER" onAction="#save">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>
