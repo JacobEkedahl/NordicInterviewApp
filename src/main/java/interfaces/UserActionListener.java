@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package datalayer;
+package interfaces;
 
 /**
  *
  * @author Jacob
  */
-public abstract class Database {
-    
+public interface UserActionListener {
+    public abstract void addStart();
+    public abstract void addSave();
 }

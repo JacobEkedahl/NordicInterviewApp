@@ -5,52 +5,67 @@
  */
 package datalayer;
 
+import com.google.api.core.ApiFuture;
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.EventListener;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.FirestoreException;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.cloud.FirestoreClient;
+import com.google.firebase.database.annotations.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collections;
+import interfaces.UserActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Jacob
  */
-
-public class FirebaseDb extends Database {
-/*
-    List<Observer> observers = new ArrayList<>();
+public class FirebaseDb implements UserActionListener {
+    private static final String start = "start";
+    private static final String saves = "saves";
     Firestore db = null;
 
     public FirebaseDb() throws IOException {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-        InputStream is = classloader.getResourceAsStream("drawing-secret.json");
+        InputStream is = classloader.getResourceAsStream("firebasedb.json");
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(is))
-                .setDatabaseUrl("https://drawing-app-13f43.firebaseio.com")
+                .setDatabaseUrl("https://nordicinterview.firebaseio.com")
                 .build();
 
         FirebaseApp.initializeApp(options);
-
         db = FirestoreClient.getFirestore();
     }
 
-    private void removeListener() {
-        Query query = db.collection("drawings");
-        ListenerRegistration registration = query.addSnapshotListener(
-                new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(QuerySnapshot t, FirestoreException fe) {
-                System.out.println("firestore exception");
-            }
-            // ...
-        });
+    @Override
+    public void addStart() {
+        // Add document data with auto-generated id.
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        Map<String, Object> data = new HashMap<>();
+        data.put("time", timeStamp);
+        data.put("type", start);
+        db.collection("logs").add(data);
+    }
 
-// Stop listening to changes
-        registration.remove();
-    }*/
+    @Override
+    public void addSave() {
+        // Add document data with auto-generated id.
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        Map<String, Object> data = new HashMap<>();
+        data.put("time", timeStamp);
+        data.put("type", saves);
+        db.collection("logs").add(data);
+    }
 }

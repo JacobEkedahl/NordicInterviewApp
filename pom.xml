@@ -102,9 +102,31 @@
                     </additionalClasspathElements>
                 </configuration>
             </plugin>
+            
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <excludeDefaultDirectories>true</excludeDefaultDirectories>
+                    <filesets>
+                        <fileset>
+                            <directory>target/classes</directory>
+                            <excludes>
+                                <exclude>**/*</exclude>
+                            </excludes>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
  
         </plugins>
     </build>
     <dependencies>
+        
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>6.6.0</version>
+        </dependency>
     </dependencies>
 </project>

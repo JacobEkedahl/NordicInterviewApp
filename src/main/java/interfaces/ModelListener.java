@@ -11,5 +11,4 @@ package interfaces;
  */
 public interface ModelListener {
     public abstract void saveCompleted();
-    public abstract void initButtons();
 }

@@ -27,6 +27,7 @@ import javafx.scene.layout.VBox;
 import model.Fascade;
 import model.QuestionAnswer;
 import interfaces.ModelListener;
+import interfaces.UserActionListener;
 import java.io.FileNotFoundException;
 
 /**
@@ -50,7 +51,7 @@ public class FormController implements Initializable, ModelListener {
         initForm();
         initButtons();
     }
-
+    
     private void initForm() {
         try {
             fascade = Fascade.getInstance();
@@ -61,9 +62,8 @@ public class FormController implements Initializable, ModelListener {
             Logger.getLogger(FormController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    @Override
-    public void initButtons() {
+
+    private void initButtons() {
         for (QuestionAnswer qa : fascade.getFormular().getForm()) {
             HBox box = new HBox();
             Label question = new Label(qa.getQuestion());
