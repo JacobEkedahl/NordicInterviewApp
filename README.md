@@ -15,9 +15,9 @@ This is done as part of a test for the Nordic .NET Trainee Programme.
 - 21:50-2200 Fixing bug that question two formular gets added a second time on third start
 - 2200-2230: Experimenting with firebase functions. Too much work to add new functionality, aborted.
 - 2230-2330: Break
-- 2330-0030 - Completed the firebase implementation
+- 2330-0015 - Completed the firebase implementation
 
-### Total time spent on project: 4h 25min
+### Total time spent on project: 4h 10min
 
 ## The application
 ![](https://github.com/JacobEkedahl/NordicInterviewApp/blob/master/media/example.gif)
